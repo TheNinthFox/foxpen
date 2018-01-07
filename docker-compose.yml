@@ -1,0 +1,22 @@
+version: '3'
+services:
+    php:
+        build: docker/php
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - 80:80
+        links:
+            - db
+
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: foxpen
+            MYSQL_USER: foxpen
+            MYSQL_PASSWORD: foxpen
+        volumes:
+            - ./db-data:/var/lib/mysql
+        ports:
+            - 3306:3306
