@@ -11,7 +11,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SitesController extends Controller
+class FrontController extends Controller
 {
     /**
      * @Route("/about", name="about")

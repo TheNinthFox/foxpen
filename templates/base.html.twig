@@ -7,14 +7,14 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('build/reset.css') }}">
         <link rel="stylesheet" href="{{ asset('build/global.css') }}">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Oswald:400,700|Roboto:400,700" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
     <header>
         {% block header %}
             <div class="wrapper">
-                <div id="logo"><h1>FoxPen</h1></div>
+                <div id="logo"><a href="{{ path('front') }}"><h1>FoxPen</h1></a></div>
                 <nav>
                     <ul>
                         <li class="{% if app.request.attributes.get('_route') == 'front' %}active{% endif %}"><a href="{{ path('front') }}">Home</a></li>
