@@ -5,15 +5,19 @@ namespace App\Doctrine;
 use App\Entity\User;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class HashPasswordListener implements EventSubscriber
 {
     private $passwordEncoder;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    private $logger;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, LoggerInterface $logger)
     {
         $this->passwordEncoder = $passwordEncoder;
+        $this->logger = $logger;
     }
 
     public function getSubscribedEvents()
